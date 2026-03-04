@@ -1,0 +1,123 @@
+{
+  "entities": {
+    "Medicine": {
+      "title": "Medicine",
+      "description": "A medical product with specific brand name and details.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Brand name of the medicine" },
+        "slug": { "type": "string", "description": "URL friendly identifier" },
+        "genericId": { "type": "string", "description": "Reference to Generic entity" },
+        "companyId": { "type": "string", "description": "Reference to Company entity" },
+        "strength": { "type": "string" },
+        "dosageForm": { "type": "string" },
+        "price": { "type": "number" },
+        "indications": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "slug", "genericId", "companyId"]
+    },
+    "Generic": {
+      "title": "Generic",
+      "description": "The active ingredient or generic name of a medicine.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "indications": { "type": "string" },
+        "pharmacology": { "type": "string" },
+        "dosage": { "type": "string" },
+        "sideEffects": { "type": "string" },
+        "precautions": { "type": "string" }
+      },
+      "required": ["name", "slug"]
+    },
+    "Company": {
+      "title": "Company",
+      "description": "Pharmaceutical company details.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "address": { "type": "string" },
+        "contact": { "type": "string" },
+        "logoUrl": { "type": "string" }
+      },
+      "required": ["name", "slug"]
+    },
+    "SideEffect": {
+      "title": "Side Effect",
+      "description": "Information about specific side effects.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "description": { "type": "string" },
+        "severity": { "type": "string", "enum": ["mild", "moderate", "severe"] }
+      },
+      "required": ["name", "slug"]
+    },
+    "Blog": {
+      "title": "Blog",
+      "description": "Articles and health tips.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "content": { "type": "string" },
+        "author": { "type": "string" },
+        "publishedAt": { "type": "string", "format": "date-time" },
+        "imageUrl": { "type": "string" }
+      },
+      "required": ["title", "slug", "content"]
+    },
+    "Job": {
+      "title": "Job",
+      "description": "Medical and healthcare job listings.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "slug": { "type": "string" },
+        "companyId": { "type": "string" },
+        "location": { "type": "string" },
+        "salary": { "type": "string" },
+        "description": { "type": "string" },
+        "requirements": { "type": "string" },
+        "postedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "slug", "companyId"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile and roles.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "MetaData": {
+      "title": "MetaData",
+      "description": "Global settings for SEO and tracking scripts.",
+      "type": "object",
+      "properties": {
+        "googleAnalyticsId": { "type": "string" },
+        "searchConsoleCode": { "type": "string" },
+        "googleAdsCode": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/medicines": { "schema": "Medicine", "description": "Collection of medicines" },
+    "/generics": { "schema": "Generic", "description": "Collection of generics" },
+    "/companies": { "schema": "Company", "description": "Collection of pharmaceutical companies" },
+    "/side-effects": { "schema": "SideEffect", "description": "Collection of side effects" },
+    "/blogs": { "schema": "Blog", "description": "Collection of blog posts" },
+    "/jobs": { "schema": "Job", "description": "Collection of healthcare jobs" },
+    "/users": { "schema": "User", "description": "Collection of users and their roles" },
+    "/meta-data": { "schema": "MetaData", "description": "Global meta data settings" }
+  }
+}
