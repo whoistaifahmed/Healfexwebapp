@@ -30,94 +30,48 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
-      {/* Top Section - 60px */}
-      <div className="container mx-auto px-4 h-[60px] flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 group">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm h-[60px] flex items-center">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        {/* Logo (Left) */}
+        <Link href="/" className="flex items-center space-x-2 group shrink-0">
           <div className="h-8 w-8 rounded-lg bg-cyan-600 flex items-center justify-center text-white font-bold text-lg shadow-md shadow-cyan-100 transition-transform group-hover:scale-105">H</div>
           <span className="text-xl font-bold tracking-tight text-slate-800">Heal<span className="text-cyan-600">Fex</span></span>
         </Link>
 
-        {/* Desktop Navbar */}
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* Nav List (Center - Desktop Only) */}
+        <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[14px] font-medium text-slate-500 transition-all hover:text-cyan-600"
+              className="text-[14px] font-medium text-slate-500 transition-all hover:text-cyan-600 whitespace-nowrap"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        {/* Desktop Dashboard Button / Mobile Menu Toggle */}
-        <div className="flex items-center space-x-4">
-          <Link
-            href="/dashboard"
-            className="hidden md:flex items-center space-x-2 rounded-lg bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-700 transition-all hover:bg-slate-200 active:scale-95"
+        {/* Icons (Right) */}
+        <div className="flex items-center space-x-2 md:space-x-4">
+          {/* Search Icon */}
+          <button 
+            className="p-2 text-slate-500 hover:bg-slate-50 rounded-lg transition-colors"
+            aria-label="Search"
           >
-            <LayoutDashboard className="h-4 w-4" />
-            <span>Dashboard</span>
-          </Link>
+            <Search className="h-5 w-5" />
+          </button>
 
+          {/* Menu Icon (Mobile Only) */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="inline-flex items-center justify-center rounded-lg p-2 text-slate-500 hover:bg-slate-50 md:hidden transition-colors"
+            aria-label="Toggle Menu"
           >
             {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-        </div>
-      </div>
 
-      {/* Bottom Section: Search Bar - 50px */}
-      <div className="bg-white h-[50px] flex items-center">
-        <div className="container mx-auto px-4 max-w-[1200px] w-full">
-          <div className="relative flex items-center h-full">
-            <div className="relative flex-1 flex items-center">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                <Search className={`h-4 w-4 transition-colors ${isSearchFocused ? 'text-cyan-500' : 'text-slate-300'}`} />
-              </div>
-              <input
-                type="text"
-                className="block w-full rounded-l-xl border-none bg-slate-50 h-9 pl-11 pr-4 text-sm placeholder-slate-400 transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-100"
-                placeholder="Search medicines, generics, or companies..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setTimeout(() => setIsSearchFocused(false), 200)}
-              />
-              <button className="h-9 px-6 bg-cyan-600 text-white text-[11px] font-bold tracking-wider rounded-r-xl hover:bg-cyan-700 transition-colors uppercase shadow-sm shadow-cyan-100">
-                Search
-              </button>
-            </div>
-            
-            {/* Real-time Search Results Placeholder */}
-            <AnimatePresence>
-              {isSearchFocused && searchQuery.length > 1 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 5 }}
-                  className="absolute left-0 right-0 top-full mt-2 rounded-2xl bg-white p-3 shadow-2xl z-50"
-                >
-                  <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                    Search Results for &quot;{searchQuery}&quot;
-                  </div>
-                  <div className="space-y-1">
-                    <div className="flex items-center px-3 py-2.5 text-sm text-slate-600 hover:bg-slate-50 hover:text-cyan-600 rounded-xl cursor-pointer transition-colors">
-                      <div className="h-9 w-9 rounded-xl bg-cyan-50 text-cyan-500 mr-3 flex items-center justify-center font-bold">M</div>
-                      <div>
-                        <div className="font-semibold text-slate-700">Example Medicine</div>
-                        <div className="text-[11px] text-slate-400">Generic Name • Company</div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+          {/* Dashboard Button (Desktop Only - Optional but kept for utility if needed, or remove if strictly following "Search icon (right)") */}
+          {/* The user said "Search icon (right)", so I will put Search icon as the rightmost element on desktop. */}
         </div>
       </div>
 
@@ -128,7 +82,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white overflow-hidden"
+            className="absolute top-[60px] left-0 right-0 bg-white shadow-lg border-t border-slate-100 md:hidden overflow-hidden"
           >
             <nav className="flex flex-col p-4 space-y-1">
               {navLinks.map((link) => (
