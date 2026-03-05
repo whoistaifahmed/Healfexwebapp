@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import MedicinesCard from './client/cards/MedicinesCard';
+import MedicinesCard from './cards/MedicinesCard';
 
 interface Medicine {
   id: string;
@@ -15,7 +15,7 @@ export default function MedicineSection({ medicines }: { medicines: Medicine[] }
   const displayMedicines = medicines.slice(0, 12);
 
   return (
-    <section className="py-12">
+    <section>
       <div className="flex items-center justify-between mb-8">
         <h2 className="text-3xl font-bold text-slate-900">Featured Medicines</h2>
         <Link href="/medicines" className="text-cyan-600 font-semibold hover:underline">

@@ -22,7 +22,7 @@ export default async function JobsPage() {
       </div>
       <div className="space-y-4">
         {jobs.map((j: any) => (
-          <a key={j.id} href={`/jobs/${j.slug}`} className="block p-8 rounded-2xl bg-slate-50 hover:bg-cyan-50 transition">
+          <a key={j.id} href={`/jobs/${j.slug}`} className="block p-4 rounded-2xl bg-slate-50 hover:bg-cyan-50 transition">
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="text-2xl font-bold mb-1">{j.title}</h3>

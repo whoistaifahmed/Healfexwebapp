@@ -17,7 +17,7 @@ export default async function SideEffectsPage() {
       <h1 className="text-4xl font-bold mb-8">Side Effects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sideEffects.map((s: any) => (
-          <a key={s.id} href={`/side-effects/${s.slug}`} className="p-6 border rounded-xl hover:border-red-200 hover:bg-red-50 transition">
+          <a key={s.id} href={`/side-effects/${s.slug}`} className="p-4 border rounded-xl hover:border-red-200 hover:bg-red-50 transition">
             <h3 className="text-xl font-bold text-red-700">{s.name}</h3>
             <p className="text-sm text-gray-500 mt-2">Severity: {s.severity}</p>
           </a>

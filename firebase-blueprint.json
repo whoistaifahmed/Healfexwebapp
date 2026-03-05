@@ -54,7 +54,8 @@
         "name": { "type": "string" },
         "slug": { "type": "string" },
         "description": { "type": "string" },
-        "severity": { "type": "string", "enum": ["mild", "moderate", "severe"] }
+        "severity": { "type": "string", "enum": ["mild", "moderate", "severe"] },
+        "imageUrl": { "type": "string" }
       },
       "required": ["name", "slug"]
     },

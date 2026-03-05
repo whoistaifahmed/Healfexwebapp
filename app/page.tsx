@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { generateSEO, generateJsonLd } from '@/lib/seo';
-import { getMedicines, getBlogs, getJobs, getGenerics } from '@/lib/db';
-import MedicineSection from '@/components/MedicineSection';
+import { getMedicines, getGenerics } from '@/lib/db';
+import MedicineSection from '@/components/client/MedicineSection';
+import CompaniesSection from '@/components/client/CompaniesSection';
+import SideEffectsSection from '@/components/client/SideEffectsSection';
 
 export const revalidate = 86400; // 24 hours
 
@@ -12,10 +14,8 @@ export const metadata: Metadata = generateSEO({
 });
 
 export default async function HomePage() {
-  const [rawMedicines, blogs, jobs, generics] = await Promise.all([
+  const [rawMedicines, generics] = await Promise.all([
     getMedicines(),
-    getBlogs(),
-    getJobs(),
     getGenerics(),
   ]);
 
@@ -56,13 +56,13 @@ export default async function HomePage() {
   }, 'Organization');
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 flex flex-col gap-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLd}
       />
       
-      <section className="text-center py-20 bg-cyan-50 rounded-3xl mb-12">
+      <section className="text-center py-20 bg-cyan-50 rounded-3xl">
         <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
           Your Trusted Source for <span className="text-cyan-600">Medical Information</span>
         </h1>
@@ -82,40 +82,11 @@ export default async function HomePage() {
       {/* New Medicines Section */}
       <MedicineSection medicines={finalMedicines} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-        <div className="p-6 rounded-2xl bg-slate-50">
-          <h2 className="text-2xl font-bold mb-4">Latest Medicines</h2>
-          <ul className="space-y-2">
-            {mappedMedicines.slice(0, 5).map((m: any) => (
-              <li key={m.id}>
-                <Link href={`/medicines/${m.slug}`} className="text-cyan-600 hover:underline">{m.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        <div className="p-6 rounded-2xl bg-slate-50">
-          <h2 className="text-2xl font-bold mb-4">Health Blogs</h2>
-          <ul className="space-y-2">
-            {blogs.slice(0, 5).map((b: any) => (
-              <li key={b.id}>
-                <Link href={`/blogs/${b.slug}`} className="text-cyan-600 hover:underline">{b.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+      {/* New Companies Section */}
+      <CompaniesSection />
 
-        <div className="p-6 rounded-2xl bg-slate-50">
-          <h2 className="text-2xl font-bold mb-4">Recent Jobs</h2>
-          <ul className="space-y-2">
-            {jobs.slice(0, 5).map((j: any) => (
-              <li key={j.id}>
-                <Link href={`/jobs/${j.slug}`} className="text-cyan-600 hover:underline">{j.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      {/* New Side Effects Section */}
+      <SideEffectsSection />
     </div>
   );
 }

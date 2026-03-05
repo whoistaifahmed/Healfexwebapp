@@ -12,7 +12,7 @@ interface StatCardProps {
 
 export default function StatCard({ label, value, icon: Icon, color, bg }: StatCardProps) {
   return (
-    <div className="p-8 bg-white rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 group">
+    <div className="p-4 bg-white rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 group">
       <div className={`w-12 h-12 ${bg} ${color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
         <Icon size={24} strokeWidth={2.5} />
       </div>
