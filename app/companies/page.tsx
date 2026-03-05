@@ -21,7 +21,7 @@ export default async function CompaniesPage() {
             <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center font-bold text-gray-400">Logo</div>
             <div>
               <h3 className="text-xl font-bold">{c.name}</h3>
-              <a href={`/companies/${c.slug}`} className="text-emerald-600 text-sm hover:underline">View Profile</a>
+              <a href={`/companies/${c.slug}`} className="text-cyan-600 text-sm hover:underline">View Profile</a>
             </div>
           </div>
         ))}

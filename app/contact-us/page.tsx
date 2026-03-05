@@ -13,18 +13,18 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
       <form className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input type="text" className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="John Doe" />
+          <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+          <input type="text" className="w-full p-3 bg-slate-50 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="John Doe" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-          <input type="email" className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="john@example.com" />
+          <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+          <input type="email" className="w-full p-3 bg-slate-50 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="john@example.com" />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-          <textarea rows={5} className="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="How can we help you?"></textarea>
+          <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+          <textarea rows={5} className="w-full p-3 bg-slate-50 rounded-xl focus:ring-2 focus:ring-cyan-500 outline-none" placeholder="How can we help you?"></textarea>
         </div>
-        <button type="submit" className="w-full py-4 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition">
+        <button type="submit" className="w-full py-4 bg-cyan-600 text-white rounded-xl font-bold hover:bg-cyan-700 transition">
           Send Message
         </button>
       </form>

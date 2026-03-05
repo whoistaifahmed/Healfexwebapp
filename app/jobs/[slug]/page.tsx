@@ -61,7 +61,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
           </section>
         </div>
         <div>
-          <button className="w-full py-4 bg-emerald-600 text-white rounded-2xl font-bold text-lg hover:bg-emerald-700 transition shadow-lg shadow-emerald-200">
+          <button className="w-full py-4 bg-cyan-600 text-white rounded-2xl font-bold text-lg hover:bg-cyan-700 transition shadow-lg shadow-cyan-200">
             Apply for this Position
           </button>
         </div>

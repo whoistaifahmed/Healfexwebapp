@@ -71,11 +71,11 @@ export default async function MedicineDetailPage({ params }: { params: Promise<{
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Generic</span>
-                  <a href={`/generics/${medicine.genericId}`} className="text-emerald-600 hover:underline">View Generic</a>
+                  <a href={`/generics/${medicine.genericId}`} className="text-cyan-600 hover:underline">View Generic</a>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Company</span>
-                  <a href={`/companies/${medicine.companyId}`} className="text-emerald-600 hover:underline">View Company</a>
+                  <a href={`/companies/${medicine.companyId}`} className="text-cyan-600 hover:underline">View Company</a>
                 </div>
               </div>
             </div>

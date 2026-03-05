@@ -22,9 +22,9 @@ export default async function BlogsPage() {
               {/* Image placeholder */}
               <div className="w-full h-full flex items-center justify-center text-gray-300 font-bold text-2xl">BLOG IMAGE</div>
             </div>
-            <h2 className="text-2xl font-bold mb-3 group-hover:text-emerald-600 transition">{b.title}</h2>
-            <p className="text-gray-600 line-clamp-3 mb-4">{b.content}</p>
-            <a href={`/blogs/${b.slug}`} className="font-bold text-emerald-600 hover:underline">Read Article &rarr;</a>
+            <h2 className="text-2xl font-bold mb-3 group-hover:text-cyan-600 transition">{b.title}</h2>
+            <p className="text-slate-600 line-clamp-3 mb-4">{b.content}</p>
+            <a href={`/blogs/${b.slug}`} className="font-bold text-cyan-600 hover:underline">Read Article &rarr;</a>
           </article>
         ))}
       </div>

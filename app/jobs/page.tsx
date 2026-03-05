@@ -22,13 +22,13 @@ export default async function JobsPage() {
       </div>
       <div className="space-y-4">
         {jobs.map((j: any) => (
-          <a key={j.id} href={`/jobs/${j.slug}`} className="block p-8 border rounded-2xl hover:border-emerald-200 hover:bg-emerald-50 transition">
+          <a key={j.id} href={`/jobs/${j.slug}`} className="block p-8 rounded-2xl bg-slate-50 hover:bg-cyan-50 transition">
             <div className="flex justify-between items-start">
               <div>
                 <h3 className="text-2xl font-bold mb-1">{j.title}</h3>
-                <p className="text-gray-600 mb-4">{j.location} • {j.salary}</p>
+                <p className="text-slate-600 mb-4">{j.location} • {j.salary}</p>
               </div>
-              <span className="px-4 py-2 bg-white border rounded-full text-sm font-bold text-emerald-600">Apply Now</span>
+              <span className="px-4 py-2 bg-white rounded-full text-sm font-bold text-cyan-600">Apply Now</span>
             </div>
           </a>
         ))}

@@ -17,8 +17,8 @@ export default async function GenericsPage() {
       <h1 className="text-4xl font-bold mb-8">Generics</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {generics.map((g: any) => (
-          <a key={g.id} href={`/generics/${g.slug}`} className="p-6 border rounded-xl hover:bg-emerald-50 transition">
-            <h3 className="text-xl font-bold text-emerald-700">{g.name}</h3>
+          <a key={g.id} href={`/generics/${g.slug}`} className="p-6 rounded-xl bg-slate-50 hover:bg-cyan-50 transition">
+            <h3 className="text-xl font-bold text-cyan-700">{g.name}</h3>
           </a>
         ))}
       </div>
