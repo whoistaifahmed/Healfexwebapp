@@ -35,7 +35,7 @@ export default function MedicinesCard({ medicine }: MedicinesCardProps) {
   return (
     <Link 
       href={`/medicines/${slug}`}
-      className="group relative flex flex-col pt-5 px-5 pb-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-cyan-200 hover:-translate-y-1 transition-all duration-300"
+      className="group relative flex flex-col pt-5 px-5 pb-4 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-cyan-200 hover:-translate-y-1 active:scale-[0.98] active:opacity-90 active:bg-cyan-50/50 active:brightness-95 transition-all duration-300"
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-2 p-2 pr-4 bg-slate-50 rounded-xl group-hover:bg-cyan-50 transition-colors duration-300">
